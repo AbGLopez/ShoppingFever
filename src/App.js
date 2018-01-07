@@ -28,7 +28,6 @@ const store = createStore( // Creamos el store con:
 
 
 
-
 export default class App extends Component {
 
     componentWillMount() {

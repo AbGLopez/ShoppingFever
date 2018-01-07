@@ -7,14 +7,14 @@ Use [marketcloud.it](https://www.marketcloud.it) to create a shop
 ## Endpoints:
 - products:
     El metodo post, necesita la version de pago: por ello devuelve error 401, pero esta implementado.
-    -post:https://api.marketcloud.it/v0/products
-    -get: https://api.marketcloud.it/v0/products
+    -post:https://api.marketcloud.it/v0/products/:id
+    -get: https://api.marketcloud.it/v0/products/:id
 
-- products_categories: 
-- product_info:
+- products_categories: https://api.marketcloud.it/v0/products?category=/:name_category
 - cart: https://api.marketcloud.it/v0/carts
 
 ## Screenshots
+
 
 
 ## Error por no estar autorizado

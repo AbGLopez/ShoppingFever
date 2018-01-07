@@ -5,8 +5,8 @@ import { Actions } from 'react-native-router-flux'
 import View from './view'
 
 const mapStateToProps = (state) => {
-    console.log('state',state)
-    console.log('state.data', state.data)
+    // console.log('state',state)
+    // console.log('state.data', state.data)
     return {
         list: state.houses.list,
         isFetching: state.houses.isFetching,

@@ -16,8 +16,8 @@ export default class HousesCell extends Component {
     
         return (
             <TouchableOpacity style={styles.container} onPress={ () => onSelect(item) } onLayout={ e => this.setState({ layout: e.nativeEvent.layout }) }>
-                <Text> { item.name } </Text>
-                <Image source={image} style={styles.image} resizeMode={'contain'} />
+                <Text style={styles.text}> { item.name } </Text>
+                <Image source={image} style={styles.image} resizeMode={'cover'} />
             </TouchableOpacity>
         )
     }
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     container: {
         margin: 10,
         width: Dimensions.get('window').width / 2 - 20, //857/600
-        height: (Dimensions.get('window').width / 2 - 20) * (857/600),
+        height: (Dimensions.get('window').width / 2 - 20),
 
         ...Platform.select({
             ios: {
@@ -46,5 +46,12 @@ const styles = StyleSheet.create({
     image: {
         width: Dimensions.get('window').width / 2 - 20, //857/600
         height: (Dimensions.get('window').width / 2 - 20) * (857/600),
+    },
+    text: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'black',
+
     }
+
 })
