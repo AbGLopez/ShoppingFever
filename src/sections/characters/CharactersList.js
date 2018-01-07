@@ -14,7 +14,8 @@ import * as CharactersActions from 'ShoppingFever/src/redux/actions/characters'
 class CharactersList extends Component {
 
     componentWillMount() {
-        const houseId = this.props.house ? this.props.house.id : null
+        console.log('house_id', this.props.house.name)
+        const houseId = this.props.house ? this.props.house.name : null
         this.props.fetchCharactersList(houseId)
     }
 
@@ -28,6 +29,7 @@ class CharactersList extends Component {
    
 
     render() {
+        console.log('list de caracters', this.props.list)
         return (
             <View style={styles.container}>
 

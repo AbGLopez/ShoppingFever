@@ -4,7 +4,7 @@ export function fetchHousesList() {
     
     return new Promise(function(resolve, reject) {
         
-        const fetchUrl = '/casas'
+        const fetchUrl = '/categories'
         axios.get(fetchUrl)        
         .then((response) => {
             console.log("axios get response: ", response);

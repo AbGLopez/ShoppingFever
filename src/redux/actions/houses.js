@@ -25,16 +25,17 @@ export function updateHouseSelected(value) {
 }
 
 export function fetchHousesList() {
-    // Función que carga del WS el listado
+    // Cargamos las categorias de producto del WS
     return (dispatch, getState) => {
 
         dispatch(setHousesFetching(true))
-        const fetchUrl = '/casas'
+        const fetchUrl = 'https://api.marketcloud.it/v0/categories'
 
         fetch(fetchUrl).then( response => {
             dispatch(setHousesFetching(false))
-            console.log("fetchHousesList response: ", response)
-            const list = response.records
+            //console.log("fetchHousesList response: ", response)
+            
+            const list = response.data
             dispatch(updateHousesList(list))
             
         }).catch( error => {

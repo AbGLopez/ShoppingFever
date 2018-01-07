@@ -11,10 +11,10 @@ export default class CharacterCell extends Component {
     render() {
 
         const { item, onSelect } = this.props 
-
-        const nombre = item.nombre ? item.nombre : ''
-        const edad = item.edad ? item.edad : ''
-        const image = item.image_dir ? { uri: item.image_dir } : require('ShoppingFever/src/resources/placeholder_product.jpg')
+        console.log('characterCell item', item ? item : 'no hay item')
+        const name = item.name ? item.name : ''
+        const price = item.display_price ? item.display_price : ''
+        const image = item.images ? { uri: item.images[0] } : require('ShoppingFever/src/resources/placeholder_product.jpg')
 
         return (
             <TouchableOpacity
@@ -23,8 +23,8 @@ export default class CharacterCell extends Component {
 
                 <Image source={ image } resizeMode={'cover'} style={styles.image} />
                 <View style={styles.textContainer}>
-                    <Text style={styles.name}>{ nombre }</Text>
-                    <Text style={styles.age}>{ edad }</Text>
+                    <Text style={styles.name}>{ name }</Text>
+                    <Text style={styles.age}>{ price }</Text>
                 </View>
 
             </TouchableOpacity>
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 2 - 20, //857/600
         height: (Dimensions.get('window').width / 2 - 20) * (857/600),
     
-//        width: '100%',
-//height: 200,
+        //        width: '100%',
+        //height: 200,
     },
 
     textContainer: {
@@ -50,19 +50,19 @@ const styles = StyleSheet.create({
         bottom: 0,
         right: 0,
         left: 0,
-        backgroundColor: 'rgba(255,255,255,0.2)',
+        backgroundColor: 'white',
     },
 
     name: {
         flex: 1,
-        fontSize: 18,
+        fontSize: 12,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'black',
     },
     age: {
-        fontSize: 16,
+        fontSize: 12,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'black',
         backgroundColor: 'transparent',
     }
 })

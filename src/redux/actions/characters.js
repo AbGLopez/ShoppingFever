@@ -32,13 +32,13 @@ export function fetchCharactersList(houseId) {
 
         dispatch(setCharactersFetching(true))
         dispatch(updateCharactersList([]))
-    
-        const fetchUrl = '/personajes?casa=' + houseId
+        console.log('mme llega de la casa..', houseId)
+        const fetchUrl = 'https://api.marketcloud.it/v0/products?category=/' + houseId
         fetch( fetchUrl ).then(response => {
 
             console.log("fetchCharactersList response: ", response)
             dispatch(setCharactersFetching(false))
-            dispatch(updateCharactersList(response.records)) // Actualizamos el reducer con el listado
+            dispatch(updateCharactersList(response.data)) // Actualizamos el reducer con el listado
 
         }).catch( error => {
 

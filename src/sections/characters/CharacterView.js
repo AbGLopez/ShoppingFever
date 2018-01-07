@@ -55,11 +55,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, props) => {
     return {
         deleteCharacter: (character) => {
-            /*
-            if(character) {
-                dispatch(CharactersActions.deleteCharacter(character))
-            }
-            */
             character && dispatch(CharactersActions.deleteCharacter(character))
         },
 
@@ -67,8 +62,6 @@ const mapDispatchToProps = (dispatch, props) => {
             console.log('product', character);
             character && dispatch(CartActions.postCart(character))
         },
-
-
     }
 }
 

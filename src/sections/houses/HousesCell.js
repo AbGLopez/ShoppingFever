@@ -11,12 +11,12 @@ export default class HousesCell extends Component {
 
     render() {
         const { item, onSelect } = this.props
-         
-        const image = item.image_dir ? { uri: item.image_dir } : null
+        
+        const image = item.image_url ? { uri: item.image_url } : require('ShoppingFever/src/resources/placeholder_product.jpg')
     
         return (
             <TouchableOpacity style={styles.container} onPress={ () => onSelect(item) } onLayout={ e => this.setState({ layout: e.nativeEvent.layout }) }>
-                <Text> Categoria </Text>
+                <Text> { item.name } </Text>
                 <Image source={image} style={styles.image} resizeMode={'contain'} />
             </TouchableOpacity>
         )
