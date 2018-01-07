@@ -14,24 +14,23 @@ export default class CartCell extends Component {
 
         const nombre = item.nombre ? item.nombre : ''
         const edad = item.edad ? item.edad : ''
-        const image = item.image_dir ? { uri: item.image_dir } : require('ShoppingFever/src/resources/placeholder.png')
+        const image =  require('ShoppingFever/src/resources/placeholder_product.jpg')
 
         return (
             <TouchableOpacity
                 style={styles.image}
                 onPress={ () => onSelect(item) }>
-
-                <Text style={styles.name}>pepe</Text>
+                <Image source={ image } resizeMode={'contain'} style={styles.image} />
                 <View style={styles.textContainer}>
-                    <Text style={styles.name}>{ nombre }</Text>
-                    <Text style={styles.age}>{ edad }</Text>
+                    <Text style={styles.name}> Producto</Text>
+                    <Text style={styles.age}>Precio</Text>
                 </View>
 
             </TouchableOpacity>
         )
     }
 }
-// <Image source={ image } resizeMode={'cover'} style={styles.image} />
+
 
 const styles = StyleSheet.create({
     

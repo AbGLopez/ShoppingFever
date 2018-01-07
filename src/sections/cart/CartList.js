@@ -40,7 +40,7 @@ class CartList extends Component {
                     extraData       = { this.props }
                     
                 />
-                <Text> Total</Text>
+                <Text style={styles.total}> Total a pagar: 100 Euros</Text>
                 
 
             </View>
@@ -54,7 +54,6 @@ const mapStateToProps = (state) => {
         house       : state.houses.item,
         list        : state.characters.list,
         character   : state.characters.item,
-        // add
         cartList    : state.houses.list,
     }
 }
@@ -80,8 +79,11 @@ const styles = StyleSheet.create({
     
     container: {
         flex: 1,
-        // backgroundColor: Colors.background,
         backgroundColor: 'white',
     },
+    total: {
+        color: 'white',
+        fontWeight: '600',
+    }
 
 })

@@ -55,8 +55,8 @@ export function deleteCharacter(character) {
         dispatch(setCharactersFetching(true))
         const state = getState()
         const house = state.houses.item
-
-        const fetchUrl = '/personajes/' + character.id
+        console.log('se elimina el producto', character)
+        const fetchUrl = 'https://api.marketcloud.it/v0/products/' + character.id
         remove( fetchUrl ).then( response => {
 
             dispatch(setCharactersFetching(false))
@@ -86,13 +86,14 @@ export function postCharacter(data) {
         const state = getState()
         const house = state.houses.item
 
-        const fetchUrl = '/personajes'
+        const fetchUrl = ' http://api.marketcloud.it/v0/products'
+        console.log('data para meter products', data)
         post(fetchUrl, data).then( response => {
 
             dispatch(setCharactersFetching(false))
             console.log("postCharacter response: ", response)
 
-            if (response.record) {
+            if (response.data) {
                 dispatch(fetchCharactersList(house.id))
                 dispatch(updateCharacterSelected(null))
                 Actions.pop()

@@ -32,13 +32,13 @@ export function fetchCartList(houseId) {
 
         dispatch(setCartFetching(true))
         dispatch(updateCart([]))
-        const fetchUrl = '/casas'
-        // const fetchUrl = '/personajes?casa=' + houseId
+        const fetchUrl = 'https://api.marketcloud.it/v0/carts'
+       
         fetch( fetchUrl ).then(response => {
 
-            console.log("fetchCartList response: ", response)
+            console.log("fetchCartList response: ", response.data)
             dispatch(setCartFetching(false))
-            dispatch(updateCart(response.records)) // Actualizamos el reducer con el listado
+            dispatch(updateCart(response.data)) // Actualizamos el reducer con el listado
 
         }).catch( error => {
 

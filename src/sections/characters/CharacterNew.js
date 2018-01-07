@@ -18,8 +18,8 @@ class CharacterNew extends Component {
             name: '',
             nameError: '',
 
-            age: '',
-            ageError: '',
+            price: '',
+            priceError: '',
 
             image: null,
         }
@@ -30,18 +30,18 @@ class CharacterNew extends Component {
         let errors = {}
 
         if(!this.state.name) {
-            errors.name = 'Elige un nombre válido'
+            errors.name = 'Elige un nombre de producto válido'
             valid = false
         }
 
-        if(!this.state.age) {
-            errors.age = 'Elige una edad válida'
+        if(!this.state.price) {
+            errors.price = 'Elige una precio válida'
             valid = false
         }
 
         this.setState({ 
             nameError: errors.name ? errors.name : '',
-            ageError: errors.age ? errors.age : '',
+            priceError: errors.price ? errors.price : '',
         })
 
         return valid
@@ -52,10 +52,13 @@ class CharacterNew extends Component {
         if( this.validateForm() ) {
             
             const characterData = {
-                nombre: this.state.name,
-                edad: this.state.age,
-                image: this.state.image ? 'data:image/jpeg;base64,' + this.state.image.data : null,
-                casa : this.props.house.id,
+                name: this.state.name,
+                price: this.state.price,
+                images: this.state.image ? ['data:image/jpeg;base64,' + this.state.image.data] : null,
+                category_id: this.props.house.id.toString(),
+                "published":"true",
+                "stock_status": "in_stock",
+                "stock_type":"status"
             }
 
             this.props.postCharacter(characterData)  
@@ -116,18 +119,18 @@ class CharacterNew extends Component {
                         onChangeText={(v) => this.setState({ name: v })}
                         value={this.state.name}
                         error={this.state.nameError}
-                        label={'Nombre:'}
-                        placeholder={'Eddard Stark'}
+                        label={'Nombre de producto:'}
+                        placeholder={'Iphone XX'}
                     />
                 </View>
 
                 <View style={styles.inputContainer}>
                     <Input
-                        onChangeText={(v) => this.setState({ age: v })}
-                        value={this.state.age}
-                        error={this.state.ageError}
-                        label={'Edad:'}
-                        placeholder={'27'}
+                        onChangeText={(v) => this.setState({ price: v })}
+                        value={this.state.price}
+                        error={this.state.priceError}
+                        label={'Precio:'}
+                        placeholder={'3000.99'}
                     />
                 </View>
 
