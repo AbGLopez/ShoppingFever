@@ -24,6 +24,7 @@ class CharactersList extends Component {
     }
 
     renderItem(item, index) {
+        console.log('item producto en listado', item)
         return <CharacterCell item={item} onSelect={ (character) => this.onSelect(character) } />
     }
    

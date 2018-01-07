@@ -21,17 +21,18 @@ class CharacterView extends Component {
 
     render() {
         const { character } = this.props
-        const nombre = character ? character.nombre : ''
-        const edad = character ? character.edad : ''
-        const image = character && character.image_dir ? { uri: character.image_dir } : require('ShoppingFever/src/resources/placeholder.png')
+        console.log('vista de producto,', character ? character : 'aun no')
+        const name = character ? character.name : ''
+        const display_price = character ? character.display_price : ''
+        const image = character && character.images[0] ? { uri: character.images[0] } : require('ShoppingFever/src/resources/placeholder.png')
 
         return (
             <View style={styles.container}>
 
                 <Image source={image} style={styles.image} resizeMode={'cover'} /> 
                 <View style={styles.textContainer}>
-                    <Text style={styles.name}>{ nombre }</Text>
-                    <Text style={styles.edad}>{ 'Precio: ' + edad }</Text>
+                    <Text style={styles.name}>{ name }</Text>
+                    <Text style={styles.edad}>{ 'Precio: ' + display_price }</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
